@@ -21,6 +21,17 @@
 	};
 };
 
+&soc {
+    int_key_wait {
+        compatible = "oxape,intkeywait";
+        pinctrl-names = "default";
+        pinctrl-0 = <&key_pin>;
+        gpios = <&gpio 23 0>;
+        interrupt-parent = <&gpio>;
+        interrupts = <23 3>;
+    };
+};
+
 &gpio {
 	/*
 	 * This is based on the official GPU firmware DT blob.
@@ -148,6 +159,12 @@
 		brcm,pins = <>;
 		brcm,function = <>;
 	};
+
+    key_pin: key_pin {
+        brcm,pins = <23>;
+        brcm,function = <0>;
+        brcm,pull = <BCM2835_PUD_UP>;
+    };
 };
 
 &mmcnr {
