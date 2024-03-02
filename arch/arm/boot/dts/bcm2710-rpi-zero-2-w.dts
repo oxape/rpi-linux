@@ -22,6 +22,10 @@
 };
 
 &soc {
+    dma_m2m {
+        compatible = "oxape,dma_m2m";
+    };
+
     int_key_wait {
         compatible = "oxape,intkeywait";
         pinctrl-names = "default";
